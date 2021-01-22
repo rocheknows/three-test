@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tom Roche</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/yrm0rjd.css">
+</head>
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="https://files.cargocollective.com/c680017/Tom-Roche---Latent-Space-Walk.mp4" type="video/mp4">
+      </video>
+    <div class="nav"></div>
+    <p>LESS HATS<br>
+   Minerals and other worldly rocks EP <br>
+   <br>
+  <a href="https://lesshats.bandcamp.com/">Buy Here</a>
+    </p>
+</div>
+    <script src="js/three.js"></script>
+
+    <script>
+        //Scene set up
+        const scene = new THREE.Scene();
+        //scene.background = new THREE.Color( 0x000000, 0 );
+        const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+        //Renderer
+        const renderer = new THREE.WebGLRenderer({ alpha: true});
+        renderer.setClearColor( 0x000000, 0 ); // the default
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        document.body.appendChild( renderer.domElement );
+        
+
+        // Cube and meterials
+        const geometry = new THREE.BoxGeometry(200, 2, 200);
+
+        const textureloader = new THREE.TextureLoader();
+        const texture = textureloader.load('img/1.jpg');
+
+
+        const material = new THREE.MeshLambertMaterial({ color: 0xffffff, map: texture });
+        const cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
+
+
+        //camera position
+        camera.position.z = 300;
+        camera.position.y = -60;
+
+        //Lights
+        const light = new THREE.AmbientLight( 0xffffff );
+        scene.add( light);
+
+        const listener = new THREE.AudioListener();
+        camera.add( listener );
+
+        // create a global audio source
+        const sound = new THREE.Audio( listener );
+
+        // load a sound and set it as the Audio object's buffer
+        const audioLoader = new THREE.AudioLoader();
+        audioLoader.load( 'sounds/4_Mothership_premaster.wav.wav', function( buffer ) {
+            sound.setBuffer( buffer );
+            sound.setLoop( false );
+            sound.setVolume( 1 );
+            sound.play( true );
+        
+        });
+        
+        // Run Scene amimation
+        function animate() {
+        requestAnimationFrame( animate );
+        cube.rotation.x += 0.01;
+        cube.rotation.y += 0.03;
+        renderer.render( scene, camera );
+        }
+        
+        animate();
+
+
+
+
+
+    </script>
+<div class="footer"><h1>Built by <a href="https://rocheknows.com/">ROCHEKNOWS Studio</a></h1></div>
+</body>
+</html>

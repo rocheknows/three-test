@@ -1,0 +1,71 @@
+
+html{
+    overflow: hidden;
+}
+
+body { 
+    margin: 0; 
+    color: white;
+ 
+
+}
+p{
+   
+
+    font-family: aktiv-grotesk, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding-left: 20px;
+}
+p a {
+    text-decoration: none;
+    color: white;
+}
+p a:hover{
+    border-bottom: 2px solid #6c75b9;
+
+
+}
+.nav{
+    display: inline-block;
+    position: fixed;
+    left: 10px;
+}
+
+h1{
+    color: white;
+    font-family: aktiv-grotesk, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+}
+h1 a{
+    text-decoration: none;
+    color:white;
+}
+h1 a:hover{
+    border-bottom: 2px solid #6c75b9;
+}
+.footer{
+    position: fixed;
+    display: flex;
+    bottom: 0px;
+    left: 0px;
+    padding-left: 20px;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
+  object-fit: cover;
+  object-position: center;
+
+  filter: invert(100%);
+
+ 
+  }
